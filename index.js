@@ -3,6 +3,8 @@ const getUserChoice = (userInput) =>{
 
     if (userInput ==="paper" || userInput === "rock" || userInput === "scissors"){
         return userInput;
+    } else if (userInput === "bomb"){
+        return "YOU WON";
     } else {
         console.log('some error happened!');
     }
@@ -58,6 +60,14 @@ const determineWinner = (userChoice, computerChoice) =>{
             return 'you lost over the computer choice';
         }
     } 
+
+    if (userChoice === 'bomb'){
+        if (computerChoice === 'rock'){
+            return 'YOU WON!';
+        } else {
+            return 'YOU WON!';
+        }
+    }
 };
 
 // testing the result
@@ -65,7 +75,7 @@ var result = determineWinner(input, rdm);
 console.log(result);
 
 function playGame (){
-    var userChoice = getUserChoice('scissors');
+    var userChoice = getUserChoice('bomb');
     var computerChoice = getComputerChoice('paper');
     console.log("Your choice was: " + userChoice)
     console.log("and the computer choice was: " + computerChoice);
@@ -73,5 +83,4 @@ function playGame (){
 }
 
 var thePlay = playGame();
-console.log(thePlay);
 
